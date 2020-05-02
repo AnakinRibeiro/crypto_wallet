@@ -1,15 +1,20 @@
 <h1>Seja Bem-vindo!</h1>
+
+<%# Helper para formatar a data atual %>
 <p><strong>Data:</strong> <%= data_br(Date.today) %></p>
 
 <%= render "menu" %>
 
 <p>
+    <%# Helper para mostrar o ambiente atual %>
     Você está em ambiente de <strong><%= ambiente_rails %></strong>
 </p>
 
 <p>
+    <%# Variavel de ambiente %>
     Eu sou uma variável de instancia/sessão <strong><%= @meu_nome %></strong>
 </p>
 <p>
+    <%# Variavel de ambiente %>
     O meu curso é o de: <strong><%= @curso %></strong>
 </p>
