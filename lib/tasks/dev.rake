@@ -7,8 +7,8 @@ namespace :dev do
       show_spinner("Apagando BD...", "Concluido!") { %x(rails db:drop) }
       show_spinner("Criando BD...", "Concluido!") { %x(rails db:create) }
       show_spinner("Migrando BD...", "Concluido!") { %x(rails db:migrate) }
-      %x(rails dev:add_coins) 
       %x(rails dev:add_mining_types) 
+      %x(rails dev:add_coins) 
     else
       puts "Você não está em modo de desenvolvimento"
     end
@@ -23,27 +23,32 @@ namespace :dev do
           {
               description: "Bitcoin",
               acronym: "BTC",
-              url_image: "https://toppng.com/uploads/preview/bitcoin-png-bitcoin-logo-transparent-background-11562933997uxok6gcqjp.png"
+              url_image: "https://toppng.com/uploads/preview/bitcoin-png-bitcoin-logo-transparent-background-11562933997uxok6gcqjp.png",
+              mining_type: MiningType.all.find_by(acronym: 'PoW')
           },
           {
               description: "Ethereum",
               acronym: "DASH",
-              url_image: "https://img2.gratispng.com/20180411/gwq/kisspng-ethereum-blockchains-digital-assets-smart-contr-blockchain-5ace40c3acb1a6.6050038115234664357074.jpg"
+              url_image: "https://img2.gratispng.com/20180411/gwq/kisspng-ethereum-blockchains-digital-assets-smart-contr-blockchain-5ace40c3acb1a6.6050038115234664357074.jpg",
+              mining_type: MiningType.all.sample
           },
           {
               description: "Dash",
               acronym: "ETH",
-              url_image: "https://i.ya-webdesign.com/images/dash-coin-png-4.png"
+              url_image: "https://i.ya-webdesign.com/images/dash-coin-png-4.png",
+              mining_type: MiningType.all.sample
           },
           {
               description: "Iota",
               acronym: "IOT",
-              url_image: "https://img2.gratispng.com/20180712/tkc/kisspng-iota-cryptocurrency-logo-internet-of-things-tether-aren-5b481f06b57ae1.5360095415314531907434.jpg"
+              url_image: "https://img2.gratispng.com/20180712/tkc/kisspng-iota-cryptocurrency-logo-internet-of-things-tether-aren-5b481f06b57ae1.5360095415314531907434.jpg",
+              mining_type: MiningType.all.sample
           },
           {
               description: "Zcash",
               acronym: "ZEC",
-              url_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRZcYBoy7rwMspi8xD44k5_ADVpSKknaVwCvjY9yHuBeKzkcZNS&usqp=CAU" 
+              url_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRZcYBoy7rwMspi8xD44k5_ADVpSKknaVwCvjY9yHuBeKzkcZNS&usqp=CAU",
+              mining_type: MiningType.all.sample 
           }
       ]
 

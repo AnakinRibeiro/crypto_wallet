@@ -1,7 +1,17 @@
+<p>
+    <%= link_to 'Português', root_path(locale: 'pt-BR') %>
+</p>
+
+<p>
+    <%= link_to 'English', root_path(locale: 'en') %>
+</p>
 <h1>Seja Bem-vindo!</h1>
 
+<p>O idioma usado nessa aplicação é: <strong> <%= t('actual_locale') %> </strong></p>
+
 <%# Helper para formatar a data atual %>
-<p><strong>Data:</strong> <%= data_br(Date.today) %></p>
+<p><strong>Data:</strong> <%= l(Date.today) %></p>
+<p><%= t('hello') %></p>
 
 <%= render "menu" %>
 
