@@ -6,7 +6,6 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'scaffolds', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    params[:controller], media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -14,9 +13,20 @@
   </head>
 
   <body>
-    <h1> CABEÇALHO <%= params[:controller] %></h1>
-        <%= yield %>
-    <h1> RODAPÉ </h1>
-    <script> $.notify("Funcionou!!!", "success"); </script>
+    <div class="container-fluid">
+      <ul class="nav justify-content-end">
+        <li>
+          <%= link_to '[HOME]', root_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Português', {locale: 'pt-BR'}, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'English', {locale: 'en'}, class:"nav-link active" %>
+        </li>
+      </ul>
+      <%= yield %>
+    </div>
   </body>
 </html>
+
